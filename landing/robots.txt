@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /variants/
+
+Sitemap: https://gta6-garmin.belidor.cc/sitemap.xml
