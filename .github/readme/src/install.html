@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>README: install</title>
+<!-- 1280x220: slim call to action that links to the install section of the site. Rendered by render.sh. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="banner.css">
+<style>
+body { width: 1280px; height: 220px; }
+
+/* The sun on the water, lower right of the frame. */
+.photo { object-position: 50% 78%; }
+.shade {
+    background: linear-gradient(90deg,
+        #34194A 0%,
+        #45285A 38%,
+        #7A5A94 62%,
+        #D9C6E4 82%,
+        #FFFFFF 100%);
+}
+.dim { position: absolute; inset: 0; z-index: 1; background: rgba(30, 16, 39, 0.18); }
+
+.copy { left: 64px; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: center; }
+.copy .eyebrow { margin-bottom: 12px; }
+.copy h2 { font-size: 40px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; text-shadow: 0 2px 20px rgba(30, 16, 39, 0.5); }
+.steps { list-style: none; display: flex; gap: 28px; margin-top: 18px; font-size: 21px; font-weight: 500; color: var(--haze); }
+.steps b { color: var(--pink); margin-right: 8px; }
+
+.cta { right: 84px; top: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.btn {
+    padding: 18px 30px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dusk);
+    background: var(--pink);
+    border: 2px solid var(--dusk);
+    box-shadow: 6px 6px 0 var(--cream);
+}
+.url { margin-top: 18px; font-size: 19px; font-weight: 700; letter-spacing: 0.5px; color: #fff; text-shadow: 0 1px 10px rgba(30, 16, 39, 0.8); }
+
+.credit { right: 12px; bottom: 10px; padding: 2px 8px; font-size: 13px; border-width: 1px; box-shadow: 2px 2px 0 var(--ink); }
+</style>
+</head>
+<body>
+<img class="photo" src="../../../landing/img/game/vice-sunset-1920.jpg" alt="">
+<div class="shade"></div>
+<div class="dim"></div>
+
+<div class="layer copy">
+    <p class="eyebrow">Install now · free · no store needed</p>
+    <h2>On your wrist in two minutes</h2>
+    <ol class="steps">
+        <li><b>01</b>Pick your watch</li>
+        <li><b>02</b>Download</li>
+        <li><b>03</b>Copy to GARMIN/Apps</li>
+    </ol>
+</div>
+
+<div class="layer cta">
+    <span class="btn">Pick your watch →</span>
+    <span class="url">gta6-garmin.belidor.cc</span>
+</div>
+
+<p class="credit">Game footage © Rockstar Games / Take-Two Interactive</p>
+</body>
+</html>

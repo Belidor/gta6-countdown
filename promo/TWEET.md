@@ -21,7 +21,7 @@ For everyone who's counting the days to GTA VI like I am: I made a countdown for
 
 Watch face, glance and a full-screen app. 123 models, free and open source.
 
-11 days left on my wrist. Install guide here:
+10 days left on my wrist. Install guide here:
 https://gta6-garmin.belidor.cc/
 
 #GTA6 #Garmin
@@ -40,7 +40,7 @@ https://gta6-garmin.belidor.cc/
 ### Option C — 250/280
 
 ```
-11 days to GTA VI. Not that I'm counting.
+10 days to GTA VI. Not that I'm counting.
 
 OK, I am. On my wrist, down to the second 🎮
 

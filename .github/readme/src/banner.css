@@ -1,0 +1,107 @@
+/* Shared look for the README banners: the variant-A landing hero.
+   A Vice City sunset frame from the GTA VI launch trailer, darkened with a plum multiply
+   gradient, Fira Mono type, and cream "brutalist" cards with a hard offset shadow.
+   Each banner page sets its own size on body; render.sh screenshots it at 2x. */
+
+:root {
+    --dusk: #1E1027;
+    --dusk-2: #2C173A;
+    --haze: #EFE4F4;
+    --haze-dim: #D9C6E4;
+    --cream: #F5F5F0;
+    --ink: #323232;
+    --muted: #666666;
+    --accent: #FBE4EF;
+    --pink: #FF55AA;
+    --pink-deep: #E0338A;
+    --orange: #FFAA00;
+    --mono: 'Fira Mono', ui-monospace, 'Courier New', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { overflow: hidden; background: var(--dusk); }
+
+body {
+    position: relative;
+    color: #fff;
+    font-family: var(--mono);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* The trailer frame and its shade fill the whole banner. */
+.photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+.shade {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    mix-blend-mode: multiply;
+}
+.layer { position: absolute; z-index: 2; }
+
+.eyebrow {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: var(--haze-dim);
+}
+
+/* Sunset type: the sky of the frame, top to bottom. */
+.sunset-text {
+    background: linear-gradient(180deg, #B9A4FF 0%, #FF7AC6 52%, #FFB36B 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Small credit tag, like a label on a film still. */
+.credit {
+    position: absolute;
+    z-index: 3;
+    padding: 4px 10px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--ink);
+    background: var(--cream);
+    border: 2px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+}
+
+/* Cream card from the landing page. */
+.card {
+    background: var(--cream);
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    box-shadow: 8px 8px 0 var(--pink);
+}
+.card img { mix-blend-mode: multiply; }
+.tag {
+    display: inline-block;
+    padding: 3px 10px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    color: var(--ink);
+    background: var(--accent);
+    border: 2px solid var(--ink);
+}
+
+/* One-line credit for banners that show the trailer frame only as a backdrop. */
+.credit-line {
+    position: absolute;
+    z-index: 3;
+    right: 72px;
+    bottom: 8px;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+    color: var(--haze-dim);
+    text-shadow: 0 1px 6px rgba(30, 16, 39, 0.9);
+}

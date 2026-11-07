@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>README hero</title>
+<!-- 1280x640: README header and GitHub social preview. Rendered by render.sh. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="banner.css">
+<style>
+body { width: 1280px; height: 640px; }
+
+/* The in-game sun sits at x = 69% of the frame; the watch stands in front of it. */
+.photo { object-position: 50% 50%; }
+.shade {
+    background: linear-gradient(90deg,
+        #34194A 0%,
+        #45285A 34%,
+        #6A4B82 50%,
+        #C9B3D6 63%,
+        #FFFFFF 76%);
+}
+.vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(180deg, rgba(30, 16, 39, 0.5) 0, rgba(30, 16, 39, 0) 120px),
+        linear-gradient(0deg, rgba(30, 16, 39, 0.6) 0, rgba(30, 16, 39, 0) 180px);
+}
+
+.copy { left: 72px; top: 0; bottom: 0; width: 640px; display: flex; flex-direction: column; justify-content: center; }
+.copy .eyebrow { margin-bottom: 22px; font-size: 19px; }
+h1 { font-weight: 700; line-height: 0.95; letter-spacing: -0.04em; }
+h1 .big { display: block; font-size: 150px; letter-spacing: -0.05em; }
+h1 .word { display: block; margin-top: 10px; font-size: 86px; color: #fff; text-shadow: 0 2px 28px rgba(30, 16, 39, 0.5); }
+.sub { margin-top: 18px; font-size: 34px; font-weight: 500; color: var(--haze); letter-spacing: -0.01em; }
+
+.chips { list-style: none; display: flex; gap: 12px; margin-top: 34px; }
+.chips li {
+    padding: 8px 14px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.78);
+    background: rgba(30, 16, 39, 0.45);
+}
+.chips li.hot { color: var(--dusk); background: var(--pink); border-color: var(--dusk); box-shadow: 4px 4px 0 var(--cream); }
+
+/* Warm bloom: the sun spills around the bezel. */
+.bloom {
+    position: absolute;
+    z-index: 1;
+    left: 915px;
+    top: 300px;
+    width: 760px;
+    height: 760px;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: screen;
+    background: radial-gradient(closest-side,
+        rgba(255, 196, 160, 0.55) 0,
+        rgba(255, 128, 176, 0.22) 45%,
+        rgba(255, 128, 176, 0) 100%);
+}
+.watch { left: 728px; top: -18px; width: 486px; }
+.watch img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter:
+        drop-shadow(0 34px 44px rgba(30, 16, 39, 0.6))
+        drop-shadow(0 6px 12px rgba(30, 16, 39, 0.4));
+}
+
+.credit { left: 72px; bottom: 24px; font-size: 14px; }
+</style>
+</head>
+<body>
+<img class="photo" src="../../../landing/img/game/vice-sunset-1920.jpg" alt="">
+<div class="shade"></div>
+<div class="vignette"></div>
+<div class="bloom"></div>
+
+<div class="layer copy">
+    <p class="eyebrow">Watch face · Glance · App</p>
+    <h1><span class="big sunset-text">GTA VI</span><span class="word">Countdown</span></h1>
+    <p class="sub">for Garmin watches</p>
+    <ul class="chips">
+        <li class="hot">19 Nov 2026</li>
+        <li>123 watches</li>
+        <li>Free · open source</li>
+    </ul>
+</div>
+
+<div class="layer watch">
+    <img src="../../../landing/img/watch-965-cutout.png" alt="">
+</div>
+
+<p class="credit">Game footage © Rockstar Games / Take-Two Interactive</p>
+</body>
+</html>

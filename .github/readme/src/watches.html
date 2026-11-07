@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>README: watches</title>
+<!-- 1280x420: supported watches. Rendered by render.sh. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="banner.css">
+<style>
+body { width: 1280px; height: 420px; }
+
+.photo { object-position: 50% 40%; filter: blur(2px); transform: scale(1.03); }
+.shade { background: linear-gradient(90deg, #3B1F4E 0%, #55386C 50%, #8E6DA8 100%); }
+.dim { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(30, 16, 39, 0.45) 0, rgba(30, 16, 39, 0.15) 50%, rgba(30, 16, 39, 0.5) 100%); }
+
+.head { left: 64px; right: 72px; top: 26px; display: flex; align-items: baseline; justify-content: space-between; }
+.head h2 { font-size: 40px; font-weight: 700; letter-spacing: -0.03em; text-shadow: 0 2px 20px rgba(30, 16, 39, 0.5); }
+.head h2 b { font-size: 46px; }
+.head h2, .head .eyebrow { white-space: nowrap; }
+.head .eyebrow { color: var(--haze); }
+
+.shelf {
+    left: 64px; right: 72px; top: 96px; bottom: 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 34px 14px 26px;
+}
+.shelf img { height: 252px; width: auto; }
+.shelf img.mid { height: 236px; }
+.shelf img.small { height: 214px; }
+.more {
+    flex: none;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    width: 128px; height: 128px;
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    background: var(--pink);
+    color: var(--dusk);
+    box-shadow: 5px 5px 0 var(--ink);
+}
+.more b { font-size: 34px; line-height: 1; letter-spacing: -0.03em; }
+.more span { margin-top: 6px; font-size: 15px; font-weight: 700; letter-spacing: 1.5px; }
+</style>
+</head>
+<body>
+<img class="photo" src="../../../landing/img/game/vice-sunset-1920.jpg" alt="">
+<div class="shade"></div>
+<div class="dim"></div>
+
+<div class="layer head">
+    <h2>Runs on <b class="sunset-text">123</b> Garmin watches</h2>
+    <p class="eyebrow">Forerunner · fēnix · Venu · Instinct</p>
+</div>
+
+<div class="layer card shelf">
+    <img src="../../../landing/img/model-1.png" alt="">
+    <img class="mid" src="../../../landing/img/model-2.png" alt="">
+    <img src="../../../landing/img/model-3.png" alt="">
+    <img class="small" src="../../../landing/img/model-4.png" alt="">
+    <img class="small" src="../../../landing/img/model-5.png" alt="">
+    <div class="more"><b>+118</b><span>MORE</span></div>
+</div>
+<p class="credit-line">Background: game footage © Rockstar Games / Take-Two Interactive</p>
+</body>
+</html>
