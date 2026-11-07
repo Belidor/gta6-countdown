@@ -1,0 +1,6 @@
+<drawables>
+    <!-- Also shown by the watch next to the glance row. -->
+    <bitmap id="LauncherIcon" filename="launcher_icon.png" />
+    <!-- Logo is 2000x1519. The compiler scales it per device; on round screens the aspect stays the same. -->
+    <bitmap id="Logo" filename="gta6_logo.png" scaleX="56%" scaleY="42.5%" scaleRelativeTo="screen" />
+</drawables>

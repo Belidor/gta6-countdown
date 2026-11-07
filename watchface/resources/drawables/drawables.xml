@@ -1,0 +1,5 @@
+<drawables>
+    <bitmap id="LauncherIcon" filename="launcher_icon.png" />
+    <!-- Logo is 2000x1519. The compiler scales it per device: 46% of screen width, height keeps the aspect on round screens. -->
+    <bitmap id="Logo" filename="gta6_logo.png" scaleX="46%" scaleY="34.9%" scaleRelativeTo="screen" />
+</drawables>

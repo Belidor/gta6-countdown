@@ -1,0 +1,7 @@
+# Signing keys: never publish them. Keep a private backup.
+keys/
+*.der
+*.pem
+
+# Build output
+bin/

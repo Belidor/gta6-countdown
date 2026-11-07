@@ -1,0 +1,22 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="card.css">
+<style>
+.frame { padding: 48px 56px 0; display: flex; flex-direction: column; }
+h1 { font-size: 64px; letter-spacing: -2px; margin-top: 14px; }
+.row { flex: 1; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.row img { width: 18.5%; height: auto; }
+.foot { position: absolute; left: 56px; bottom: 34px; }
+</style></head><body>
+<div class="frame">
+  <p class="eyebrow">Forerunner · fēnix · Venu · Instinct · vívoactive</p>
+  <h1>Runs on 123 Garmin watches</h1>
+  <div class="row" id="row"></div>
+  <p class="foot">Unofficial fan project. Not affiliated with Rockstar Games.</p>
+</div>
+<script>
+['model-1', 'model-2', 'model-3', 'model-4', 'model-5'].forEach(function (n) {
+  var i = document.createElement('img'); i.src = '../landing/img/' + n + '.png'; i.alt = ''; document.getElementById('row').appendChild(i);
+});
+</script>
+</body></html>
