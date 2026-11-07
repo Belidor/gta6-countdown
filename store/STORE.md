@@ -12,7 +12,7 @@ Images:
 - Screenshots: `screenshots/1-watch-face.png`, `2-watch-face-always-on.png`, `3-glance.png`, `4-app.png`
 - Icon 512×512: `icon-512.png`
 
-Price: Free. Website: https://belidor.github.io/gta6-countdown/. Support: belidor@icloud.com, https://github.com/Belidor/gta6-countdown/issues.
+Price: Free. Website: https://gta6.belidor.cc/. Support: belidor@icloud.com, https://github.com/Belidor/gta6-countdown/issues.
 
 ## Watch face
 

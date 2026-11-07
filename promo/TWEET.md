@@ -11,7 +11,7 @@ GTA VI is out in 11 days, so I put the countdown on my Garmin.
 Watch face, glance and a full-screen app. 123 watch models, free and open source.
 
 Connect IQ: <store link>
-Site: https://belidor.github.io/gta6-countdown/
+Site: https://gta6.belidor.cc/
 ```
 
 ## Images (in this order)
