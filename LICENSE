@@ -25,5 +25,7 @@ SOFTWARE.
 This license covers the source code only. The GTA VI logo files
 (art/gta6_logo_source.png, resources/drawables/gta6_logo.png,
 resources/drawables/launcher_icon.png and the images made from them) are
-trademarks of Take-Two Interactive Software, Inc. They are not covered by
-this license.
+trademarks of Take-Two Interactive Software, Inc. The game frames in
+landing/img/game/ come from the official GTA VI launch trailer
+(c) Rockstar Games / Take-Two Interactive. None of these files are covered
+by this license.

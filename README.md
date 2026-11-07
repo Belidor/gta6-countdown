@@ -3,13 +3,13 @@
 A Connect IQ watch face and a watch app with a glance that count down to the
 GTA VI release: 19 November 2026, 00:00 on the watch clock.
 
-Site: https://gta6.belidor.cc/
+Site: https://gta6-garmin.belidor.cc/
 
 | Folder | What it is |
 |---|---|
 | `watchface/` | Watch face: time, logo, countdown, AMOLED always-on mode |
 | `app/` | Watch app: a glance for the glance list and a full-screen view with seconds |
-| `landing/` | Static landing page, deployed to https://gta6.belidor.cc by `.github/workflows/pages.yml` |
+| `landing/` | Static landing page, deployed to https://gta6-garmin.belidor.cc by `.github/workflows/pages.yml` |
 | `promo/` | Images and text for the announcement |
 | `store/` | Connect IQ Store screenshots, icon and listing text |
 

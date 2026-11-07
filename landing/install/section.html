@@ -1,0 +1,60 @@
+<!-- Sideload install section. Needs install/install.css in <head> and
+     <script src="install/install.js" defer></script> (path relative to the landing page).
+     Without JS the buttons still download the Forerunner 965 files. -->
+<section id="install" class="ins">
+    <div class="wrap">
+        <p class="eyebrow">Install now</p>
+        <h2>Install before it hits the store</h2>
+        <p class="ins-lead">The Connect IQ Store review takes a few days. Until then, copy the file to your watch over USB. It takes about two minutes.</p>
+
+        <div class="ins-grid">
+            <div class="ins-pick">
+                <label class="ins-label" for="ins-search">Find your watch</label>
+                <input class="ins-search" id="ins-search" type="search" placeholder="fenix 7, 965, Venu 3…" autocomplete="off" autocapitalize="off" spellcheck="false" aria-controls="ins-device" aria-describedby="ins-count">
+                <select class="ins-list" id="ins-device" size="7" aria-label="Watch model">
+                    <option value="fr965" selected>Forerunner 965</option>
+                </select>
+                <p class="ins-count" id="ins-count" aria-live="polite">123 watches</p>
+
+                <p class="ins-chosen">Your watch: <b id="ins-name">Forerunner 965</b></p>
+                <div class="ins-buttons">
+                    <a class="ins-btn ins-btn-dark" id="ins-face" data-kind="face" href="https://github.com/Belidor/gta6-countdown/releases/download/sideload-v1/GTA6Countdown-fr965.prg">Watch face .prg</a>
+                    <a class="ins-btn ins-btn-light" id="ins-app" data-kind="app" href="https://github.com/Belidor/gta6-countdown/releases/download/sideload-v1/GTA6App-fr965.prg">App .prg</a>
+                </div>
+                <p class="ins-files" id="ins-files">GTA6Countdown-fr965.prg · GTA6App-fr965.prg</p>
+                <p class="ins-hint" id="ins-glance" hidden>Glance not supported on this watch: it needs Connect IQ 4. Open the app from the apps list instead.</p>
+                <p class="ins-hint" id="ins-error" hidden>Could not load the watch list. All files are on the release page below.</p>
+                <p class="ins-source"><a href="https://github.com/Belidor/gta6-countdown/releases/tag/sideload-v1">Source and checksums</a></p>
+            </div>
+
+            <ol class="ins-steps">
+                <li>
+                    <h3>Download</h3>
+                    <p>Pick your watch above and download the watch face, the app, or both.</p>
+                </li>
+                <li>
+                    <h3>Connect</h3>
+                    <p>Plug the watch into your computer with the USB cable.</p>
+                    <p>Mac: open it in <a href="https://openmtp.ganeshrvel.com/">OpenMTP</a>. Older watches also show up in Finder as a drive.</p>
+                    <p>Windows: open it in File Explorer.</p>
+                </li>
+                <li>
+                    <h3>Copy</h3>
+                    <p>Copy the <code>.prg</code> file into the <code>GARMIN/Apps</code> folder.</p>
+                </li>
+                <li>
+                    <h3>Unplug</h3>
+                    <p>Eject and unplug the watch. It installs the file in a few seconds.</p>
+                </li>
+                <li>
+                    <h3>Turn it on</h3>
+                    <p>Watch face: open the watch face settings (on most watches hold <span class="ins-kbd">UP</span> or <span class="ins-kbd">MENU</span>, then Watch Face) and pick GTA VI Countdown.</p>
+                    <p>Glance: in the glance list choose Edit, then Add. Needs Connect IQ 4 or newer.</p>
+                    <p>App: press <span class="ins-kbd">START</span> and pick GTA VI Countdown.</p>
+                </li>
+            </ol>
+        </div>
+
+        <p class="ins-note"><b>When the store version arrives:</b> first delete the sideloaded <code>.prg</code> from <code>GARMIN/Apps</code>, then install from the Connect IQ Store. This way you do not get two copies.</p>
+    </div>
+</section>
