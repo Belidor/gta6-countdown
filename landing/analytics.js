@@ -92,7 +92,7 @@
         box.setAttribute('role', 'dialog');
         box.setAttribute('aria-label', 'Analytics consent');
         // The link scrolls to the #privacy section of the page.
-        box.innerHTML = '<p>Can this site use Google Analytics to count visits and downloads? No ads, no personal profile. ' +
+        box.innerHTML = '<p>Can this site use Google Analytics to count visits, clicks and downloads? No ads, no personal profile. ' +
             '<a href="#privacy">Privacy</a>.' + now + '</p>' +
             '<div class="ga-buttons"><button type="button" class="ga-allow">Allow</button>' +
             '<button type="button" class="ga-decline">Decline</button></div>';
