@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com https://cdn.buymeacoffee.com/widget/assets/ https://cdn.buymeacoffee.com/assets/img/widget/loader.svg; frame-src https://www.buymeacoffee.com https://buymeacoffee.com; style-src 'self' 'unsafe-inline'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>GTA VI Countdown — on a Garmin watch</title>
 <meta name="description" content="Days, hours, minutes and seconds until GTA VI, on your Garmin watch. A watch face, a glance and a full-screen app. Free and open source.">
@@ -286,6 +286,7 @@
         <p><b>Google Analytics, only with your consent.</b> If you click "Allow" in the banner, this site loads Google Analytics 4 to count visits, pages, downloads, outbound clicks and scrolling. Google then receives your IP address, browser and device data, and the pages you view. Ads features and Google signals are off. Legal basis: your consent (GDPR Art. 6(1)(a)). If you click "Decline" or do nothing, Google Analytics does not load.</p>
         <p><b>Cookies and recipient.</b> Google Analytics sets the cookies <code>_ga</code> and <code>_ga_RV98YPRNH7</code> on gta6-garmin.belidor.cc for up to 13 months after your last visit. The recipient is Google (Google Ireland Ltd. and Google LLC, USA). The transfer to the USA uses the EU-US Data Privacy Framework. Your banner choice stays in the local storage of your browser (<code>gta6-analytics</code>). This site sets no other cookies.</p>
         <p><b>Withdraw at any time.</b> Click "Analytics settings" at the bottom of the page and choose "Decline". The site then stops Google Analytics and deletes its cookies. A withdrawal does not affect visits that were counted before it.</p>
+        <p><b>Buy Me a Coffee button.</b> The coffee button at the bottom right comes from Buy Me a Coffee (Publisherr, Inc., USA). To show it, your browser loads a script and two small images from buymeacoffee.com, so Buy Me a Coffee receives your IP address, browser and device data, and the address of this site. The button itself sets no cookies. If you click it, the Buy Me a Coffee page opens in a panel on this site. That page sets its own cookies and loads other services, such as Stripe for payments, Google Tag Manager and the CookieYes cookie banner. The <a href="https://buymeacoffee.com/privacy-policy">Buy Me a Coffee privacy policy</a> applies to it. Buy Me a Coffee uses Standard Contractual Clauses for data from the EU. Legal basis: legitimate interest in accepting voluntary support for this free project (GDPR Art. 6(1)(f)).</p>
         <p><b>Hosting, fonts and downloads.</b> GitHub Pages (GitHub, Inc., USA) hosts this site. GitHub logs the IP addresses of visitors for security (legitimate interest, GDPR Art. 6(1)(f)). The fonts come from this site, not from Google. The <code>.prg</code> downloads come from GitHub Releases on github.com. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub privacy statement</a> and the <a href="https://policies.google.com/privacy">Google privacy policy</a>.</p>
         <p><b>Your rights.</b> You can ask for access to your data, its correction, erasure or restriction, and a copy in a portable format, and you can object to its use. You can also complain to a data protection supervisory authority. Write to the contact address above.</p>
     </div>
@@ -305,5 +306,16 @@
 <script src="main.js"></script>
 <script src="install/install.js" defer></script>
 <script src="analytics.js" defer></script>
+<script src="support.js" defer></script>
+<!-- Buy Me a Coffee button.
+     - integrity pins the reviewed 1.0.0 file. Buy Me a Coffee edits that file in place now and then; the browser
+       then refuses it and the button disappears. The workflow .github/workflows/bmc-widget-check.yml fails when
+       that happens: review the new file, then update the hash here.
+     - defer: a slow Buy Me a Coffee server must not hold back the consent banner and the download picker.
+       Do not use async: the widget builds itself on DOMContentLoaded and would miss it.
+     - The CSP above allows only this script, its two images and its panel page. Its unused .eot font is skipped
+       by current browsers, and font-src 'self' would block it anyway.
+     - Keep data-message empty: with a message the widget sets a 24-hour "visited" cookie, which needs consent. -->
+<script defer data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" integrity="sha384-Ix5rVKHOmV5CEwVkvVF0OJsmX53F8y01q+sE3+b41ZLmPZWgufB7atrf9pwA7r1e" crossorigin="anonymous" data-id="belid0r" data-description="Support me on Buy me a coffee!" data-message="" data-color="#5F7FFF" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 </body>
 </html>

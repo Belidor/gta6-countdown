@@ -1,0 +1,69 @@
+name: Check Buy Me a Coffee widget
+
+# landing/index.html pins the Buy Me a Coffee widget with an integrity hash. Buy Me a Coffee edits the
+# 1.0.0 file in place now and then; browsers then refuse it and the coffee button disappears from the site.
+# This job fails (and GitHub sends an e-mail) when the live file no longer matches the pinned hash,
+# or when the widget files stop loading the way the page's CSP and SRI need.
+
+on:
+  schedule:
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'landing/index.html'
+      - '.github/workflows/bmc-widget-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Compare the live widget with the hash in index.html
+        run: |
+          set -euo pipefail
+          url='https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js'
+
+          # The hash on the widget's own script tag, not any other integrity attribute.
+          expected=$(grep -F "src=\"$url\"" landing/index.html | grep -o 'integrity="sha384-[A-Za-z0-9+/=]*"' | head -n 1 | sed -e 's/^integrity="//' -e 's/"$//' || true)
+          if [ -z "$expected" ]; then
+            echo "::error::landing/index.html has no integrity hash on the Buy Me a Coffee script tag."
+            exit 1
+          fi
+
+          file=$(mktemp)
+          headers=$(mktemp)
+          if ! curl -fsSL --retry 3 --max-time 30 -D "$headers" -o "$file" "$url"; then
+            echo "::error::Could not download $url."
+            exit 1
+          fi
+          # crossorigin="anonymous" on the tag needs this header, or the browser refuses the script.
+          if ! grep -qi '^access-control-allow-origin: \*' "$headers"; then
+            echo "::error::$url no longer sends Access-Control-Allow-Origin: *, so the browser refuses it."
+            exit 1
+          fi
+
+          live="sha384-$(openssl dgst -sha384 -binary "$file" | openssl base64 -A)"
+          echo "pinned: $expected"
+          echo "live:   $live"
+          if [ "$live" != "$expected" ]; then
+            echo "::error::The live widget and the pinned hash differ, so the coffee button is hidden on the site. Review the new file at $url, then put $live into the integrity attribute in landing/index.html."
+            exit 1
+          fi
+
+          # The CSP allows these two images by path and does not follow redirects to other paths.
+          for image in 'https://cdn.buymeacoffee.com/widget/assets/coffee%20cup.svg' 'https://cdn.buymeacoffee.com/assets/img/widget/loader.svg'; do
+            status=$(curl -sS -o /dev/null --retry 3 --max-time 30 -w '%{http_code}' "$image" || true)
+            if [ "$status" != "200" ]; then
+              echo "::error::$image returned HTTP $status instead of 200. Check the widget images and the img-src rule in the CSP."
+              exit 1
+            fi
+          done
+          echo "The widget, its CORS header and its images are as expected."

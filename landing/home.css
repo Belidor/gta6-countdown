@@ -282,7 +282,7 @@
 /* Credit label pinned to the bottom edge of the hero, like a tag on a film still. */
 .cine-credit {
     position: absolute;
-    right: max(16px, calc(50% - 524px));
+    right: max(96px, calc(50% - 524px)); /* 96px keeps it clear of the Buy Me a Coffee button */
     bottom: -15px;
     z-index: 3;
     margin: 0;
