@@ -10,14 +10,20 @@
 <meta property="og:title" content="GTA VI Countdown on a Garmin watch">
 <meta property="og:description" content="A watch face, a glance and a full-screen app that count down to 19 November 2026.">
 <meta property="og:url" content="https://gta6-garmin.belidor.cc/">
-<meta property="og:image" content="https://gta6-garmin.belidor.cc/img/og.png">
+<meta property="og:image" content="https://gta6-garmin.belidor.cc/img/og-v2.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The words GTA VI countdown for Garmin watches over a purple Vice City sunset, around a Garmin Forerunner 965 that shows the countdown to 19 November 2026.">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gta6-garmin.belidor.cc/img/og-v2.jpg">
+<meta name="twitter:image:alt" content="The words GTA VI countdown for Garmin watches over a purple Vice City sunset, around a Garmin Forerunner 965 that shows the countdown to 19 November 2026.">
 <link rel="icon" href="img/icon.png">
 <link rel="preload" as="image" href="img/game/vice-sunset-phone.jpg" media="(max-width: 640px)" fetchpriority="high">
 <link rel="preload" as="image" href="img/game/vice-sunset-1920.jpg" imagesrcset="img/game/vice-sunset-960.jpg 960w, img/game/vice-sunset-1920.jpg 1920w" imagesizes="max(100vw, 1720px)" media="(min-width: 641px)" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Roboto:wght@400&display=swap">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="install/install.css">
 <link rel="stylesheet" href="home.css">
@@ -59,10 +65,25 @@
             </div>
         </div>
         <div class="cine-watch">
-            <picture>
-                <source type="image/webp" srcset="img/watch-965-cutout.webp">
-                <img src="img/watch-965-cutout.png" width="610" height="848" alt="Forerunner 965 with the GTA VI Countdown watch face">
-            </picture>
+            <div class="cine-face">
+                <picture>
+                    <source type="image/webp" srcset="img/watch-965-cutout.webp">
+                    <img src="img/watch-965-cutout.png" width="610" height="848" alt="Forerunner 965 with the GTA VI Countdown watch face">
+                </picture>
+                <!-- Live copy of the watch screen on top of the photo. main.js fills it and shows it. -->
+                <div class="face-live" id="face-live" aria-hidden="true" translate="no" hidden>
+                    <span class="face-patch face-patch-time"></span>
+                    <span class="face-patch face-patch-count"></span>
+                    <span class="face-patch face-patch-date"></span>
+                    <div class="face-screen">
+                        <span class="face-time" data-face="time">8:40</span>
+                        <span class="face-count"><span class="face-pair"><span data-face="d">11</span><span class="face-label">DAY</span></span><span class="face-colon">:</span><span class="face-pair"><span data-face="h">03</span><span class="face-label">HR</span></span><span class="face-colon">:</span><span class="face-pair"><span data-face="m">19</span><span class="face-label">MIN</span></span><span class="face-colon">:</span><span class="face-pair"><span data-face="s">49</span><span class="face-label">SEC</span></span></span>
+                        <span class="face-date">19.11.2026</span>
+                        <span class="face-out">OUT NOW</span>
+                        <span class="face-day" data-face="day">DAY 1</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

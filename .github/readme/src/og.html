@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Link preview</title>
+<!-- 1200x630: the og:image of gta6-garmin.belidor.cc (X uses it too), in the look of the landing hero.
+     Messengers show it 400-600 px wide, so the type is big and short.
+
+     Layout: three columns, so every common crop keeps whole words and the whole watch.
+       x 50..270     headline "GTA VI countdown", white Fira Mono like the site hero
+       x 307..893    the watch (case x 342..858); the domain label above it, the credit label below it
+       x 930..1150   "for Garmin watches" and the chips
+     A centred square crop (x 285..915: the small WhatsApp, Telegram and Messenger thumbnails) shows
+     the whole watch and both labels. A 2:1 crop (X) cuts 15 px from the top and the bottom; the
+     labels end at y 30 and y 603. No text crosses x = 285 or x = 915.
+
+     The watch screen: the photo froze it at 20:40 on 7 November. Like the site hero, a black patch
+     hides the old countdown and Roboto text shows the countdown at render time. On or after
+     19 November it shows OUT NOW and the day number. Add ?now=2026-11-12T18:00 to the URL to pin a time.
+
+     Render (run from this folder; Chrome can hang after the screenshot, so wait for the file and stop it):
+       CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+       TMP="$(mktemp -d)"
+       "$CHROME" --headless=new --hide-scrollbars --no-first-run --user-data-dir="$TMP/profile" \
+           --virtual-time-budget=6000 --force-device-scale-factor=2 --window-size=1200,630 \
+           --screenshot="$TMP/og@2x.png" "file://$PWD/og.html" >/dev/null 2>&1 &
+       until [ -s "$TMP/og@2x.png" ]; do sleep 0.25; done; sleep 0.5
+       pkill -f "user-data-dir=$TMP/profile"
+       ffmpeg -v error -y -i "$TMP/og@2x.png" -vf scale=1200:630:flags=lanczos -pix_fmt rgb24 "$TMP/og.ppm"
+       cjpeg -quality 88 -sample 1x1 -optimize -progressive "$TMP/og.ppm" > ../../../landing/img/og-v2.jpg
+       rm -rf "$TMP"
+     The virtual time budget gives Google Fonts time to load: without it, Chrome can take the
+     screenshot in a fallback font.
+     JPEG, not PNG: a lossless PNG of the photo is about 630 KB, and a 256-colour PNG shows grain
+     in the sky. JPEG q88 with 4:4:4 chroma keeps the pink text edges clean at about 150 KB. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Roboto:wght@400&display=swap">
+<link rel="stylesheet" href="banner.css">
+<style>
+body { width: 1200px; height: 630px; }
+
+/* The frame is 2:1, the card 1.91:1: cover crops 30 px of width. The in-game sun (x = 69%) lands
+   at about x = 840, behind the right side of the watch, so it glows around the bezel. The shade is
+   dark behind both text columns and clear behind the watch, where the sky is brightest. */
+.photo { object-position: 50% 50%; }
+.shade {
+    background: linear-gradient(90deg,
+        #3A1F4E 0%,
+        #45285A 17%,
+        #7A5A92 26%,
+        #E9DDEE 36%,
+        #FFFFFF 46%,
+        #FFFFFF 64%,
+        #C4A9D2 74%,
+        #6E4F86 84%,
+        #4A2C5E 100%);
+}
+.vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(180deg, rgba(30, 16, 39, 0.5) 0, rgba(30, 16, 39, 0) 110px),
+        linear-gradient(0deg, rgba(30, 16, 39, 0.62) 0, rgba(30, 16, 39, 0) 170px);
+}
+/* Warm bloom: the sun spills around the bezel. */
+.bloom {
+    position: absolute;
+    z-index: 1;
+    left: 820px;
+    top: 310px;
+    width: 760px;
+    height: 760px;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: screen;
+    background: radial-gradient(closest-side,
+        rgba(255, 196, 160, 0.55) 0,
+        rgba(255, 128, 176, 0.22) 45%,
+        rgba(255, 128, 176, 0) 100%);
+}
+
+/* Left column: the headline, white Fira Mono like the site hero ("GTA VI countdown on your wrist"). */
+.headline {
+    left: 56px;
+    top: 0;
+    bottom: 0;
+    width: 214px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+h1 {
+    font-weight: 700;
+    line-height: 0.92;
+    color: #fff;
+    text-shadow: 0 2px 28px rgba(30, 16, 39, 0.55);
+}
+h1 .big { display: block; font-size: 132px; letter-spacing: -0.05em; margin-left: -6px; }
+h1 .word { display: block; margin-top: 18px; font-size: 42px; letter-spacing: -0.035em; }
+
+/* Right column: what it runs on, the date and the facts. */
+.facts {
+    left: 930px;
+    top: 0;
+    bottom: 0;
+    width: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.sub {
+    font-size: 37px;
+    font-weight: 500;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    color: #fff;
+    text-shadow: 0 1px 14px rgba(30, 16, 39, 0.7), 0 0 2px rgba(30, 16, 39, 0.5);
+}
+.chips {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-top: 26px;
+}
+.chips li {
+    padding: 7px 12px 8px;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    background: rgba(30, 16, 39, 0.55);
+}
+.chips li.hot {
+    color: var(--dusk);
+    background: var(--pink);
+    border-color: var(--dusk);
+    box-shadow: 5px 5px 0 var(--cream);
+}
+
+/* Centre column: 610x848 cut-out at 520 px wide = 723 px tall. The case (x 342..858) stays inside
+   the centre square; the strap runs off the top and bottom edges. */
+.watch { left: 340px; top: -43px; width: 520px; container-type: inline-size; }
+.watch img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter:
+        drop-shadow(0 34px 44px rgba(30, 16, 39, 0.6))
+        drop-shadow(0 6px 12px rgba(30, 16, 39, 0.4));
+}
+/* A light 2x5 px fleck in the cut-out where the left lug meets the strap (photo x 173..174,
+   y 739..743): paint it in the strap edge colours. */
+.watch .fleck {
+    position: absolute;
+    left: 28.36%;
+    top: 87.15%;
+    width: 0.33%;
+    height: 0.55%;
+    background: linear-gradient(90deg, #3C3E0B, #989C1A);
+}
+
+/* Live countdown on the watch screen. Same geometry as .face-live in landing/home.css. */
+.face {
+    --mid: 0.49em;
+    position: absolute;
+    inset: 0;
+    font: 400 8.54cqw/1 Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-kerning: none;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+}
+.face[hidden] { display: none; }
+.face-patch { position: absolute; background: #000; }
+.face-patch-count { left: 27.21%; top: 57.55%; width: 47.54%; height: 10.61%; }   /* x 166-456, y 488-578 */
+.face-patch-date { left: 37.21%; top: 68.16%; width: 27.87%; height: 5.43%; }     /* x 227-397, y 578-624 */
+.face-screen { position: absolute; left: 13.77%; top: 23.7%; width: 74.43%; height: 53.54%; }
+.face-screen > span { position: absolute; left: 0; right: 0; text-align: center; }
+.face-count,
+.face-out { top: calc(69.96% - var(--mid)); }
+.face-count { color: #FF55AA; }
+.face-colon { color: #555555; }
+.face-out { color: #FFAA00; }
+.face-day { top: calc(82.27% - var(--mid)); font-size: 5.07cqw; color: #AAAAAA; }
+.face-pair { position: relative; display: inline-block; }
+.face-label {
+    position: absolute;
+    left: 50%;
+    top: calc(0.49 * 8.54cqw + 6.39cqw - var(--mid));
+    transform: translateX(-50%);
+    font-size: 5.07cqw;
+    color: #AAAAAA;
+}
+.face-patch-date,
+.face-screen > .face-out,
+.face-screen > .face-day,
+.is-out .face-screen > .face-count { display: none; }
+.is-out .face-patch-date,
+.is-out .face-screen > .face-out,
+.is-out .face-screen > .face-day { display: block; }
+
+/* Cream labels on the strap: the domain above the watch, the footage credit below it.
+   (Not .tag: banner.css gives .tag a 1.8 px letter-spacing.) */
+.label {
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    color: var(--ink);
+    background: var(--cream);
+    border: 2px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    line-height: 1.3;
+}
+.domain {
+    top: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 3px 12px;
+    font-size: 24px;
+    font-weight: 700;
+}
+.domain::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: var(--pink);
+    border: 2px solid var(--ink);
+}
+/* 18 px: about 6 px tall in a 400 px preview, 9 px at 600 px, full size when the image is opened. */
+.credit { bottom: 30px; padding: 3px 10px; font-size: 18px; }
+</style>
+</head>
+<body>
+<img class="photo" src="../../../landing/img/game/vice-sunset-1920.jpg" alt="">
+<div class="shade"></div>
+<div class="vignette"></div>
+<div class="bloom"></div>
+
+<div class="layer headline">
+    <h1><span class="big">GTA<br>VI</span><span class="word">countdown</span></h1>
+</div>
+
+<div class="layer watch">
+    <img src="../../../landing/img/watch-965-cutout.png" alt="">
+    <span class="fleck"></span>
+    <div class="face" id="face" hidden>
+        <span class="face-patch face-patch-count"></span>
+        <span class="face-patch face-patch-date"></span>
+        <div class="face-screen">
+            <span class="face-count"><span class="face-pair"><span data-face="d">11</span><span class="face-label">DAY</span></span><span class="face-colon">:</span><span class="face-pair"><span data-face="h">03</span><span class="face-label">HR</span></span><span class="face-colon">:</span><span class="face-pair"><span data-face="m">19</span><span class="face-label">MIN</span></span><span class="face-colon">:</span><span class="face-pair"><span data-face="s">49</span><span class="face-label">SEC</span></span></span>
+            <span class="face-out">OUT NOW</span>
+            <span class="face-day" data-face="day">DAY 1</span>
+        </div>
+    </div>
+</div>
+
+<div class="layer facts">
+    <p class="sub">for Garmin watches</p>
+    <ul class="chips">
+        <li class="hot">19 Nov 2026</li>
+        <li>123 watches</li>
+        <li>Free</li>
+    </ul>
+</div>
+
+<p class="label domain">gta6-garmin.belidor.cc</p>
+<p class="label credit">Game footage © Rockstar Games / Take-Two Interactive</p>
+
+<script>
+// Same rule as the watch and the site: 19 November 2026, 00:00 local time.
+const RELEASE = new Date(2026, 10, 19, 0, 0, 0);
+const pinned = new URLSearchParams(location.search).get('now');
+const now = pinned ? new Date(pinned) : new Date();
+const face = document.getElementById('face');
+const part = (key) => face.querySelector('[data-face="' + key + '"]');
+const pad = (n) => String(n).padStart(2, '0');
+
+let s = Math.floor((RELEASE - now) / 1000);
+if (s <= 0) {
+    face.classList.add('is-out');
+    part('day').textContent = 'DAY ' + (Math.floor(-s / 86400) + 1);
+} else {
+    const d = Math.floor(s / 86400); s %= 86400;
+    const h = Math.floor(s / 3600); s %= 3600;
+    const m = Math.floor(s / 60); s %= 60;
+    part('d').textContent = pad(d);
+    part('h').textContent = pad(h);
+    part('m').textContent = pad(m);
+    part('s').textContent = pad(s);
+}
+// Show the live screen only in Roboto. If the font fails, the photo keeps its own frozen screen.
+document.fonts.load('1em Roboto', '0123456789:').then((fonts) => {
+    if (fonts.length) face.hidden = false;
+});
+</script>
+</body>
+</html>
