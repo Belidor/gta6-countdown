@@ -214,9 +214,9 @@ footer p { margin: 0 0 8px; max-width: 80ch; }
 /* Buy Me a Coffee button (built by the widget script, fixed at bottom right, 64 px, 18 px margins).
    The footer ends below it, so the button never sits on the last lines of text. */
 footer { padding-bottom: 110px; }
-/* The light ring keeps the dark outline visible over the dark hero photo too. */
 /* The widget animates "all" properties; animate only its hover zoom, so the focus ring shows at once. */
 #bmc-wbtn { transition-property: transform !important; }
+/* The light ring keeps the dark outline visible over the dark hero photo too. */
 #bmc-wbtn:focus-visible { outline: 3px solid var(--fg); outline-offset: 3px; box-shadow: 0 0 0 3px var(--bg) !important; }
 #bmc-close-btn:focus-visible { outline: 3px solid var(--fg); outline-offset: 2px; }
 @media (forced-colors: active) {
