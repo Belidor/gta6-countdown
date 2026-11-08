@@ -280,12 +280,25 @@ cd watchface          # or: cd app
 ./build.sh fenix7     # .prg for another device
 ./build.sh products   # refresh the device list from the SDK Manager downloads
 ./build.sh export     # .iq package for every device in manifest.xml
+./build.sh newkey     # new signing key, only for a brand-new app
 ```
 
 The files go to `bin/`. To test on a real watch, copy a `.prg` to `GARMIN/Apps` and unplug the watch.
 
 > [!IMPORTANT]
-> On the first run `build.sh` creates a signing key in `keys/`. The folder is in `.gitignore`. Keep a private backup of it: every Connect IQ Store update must be signed with the same key.
+> `build.sh` signs with `keys/developer_key.der`. The `keys/` folder is in `.gitignore`. Every Connect IQ Store update must be signed with the same key, so keep a private, encrypted backup of `developer_key.der` and `developer_key.pem`.
+>
+> - **No key, no build.** If the key is missing, `build.sh` stops with an error. It never makes a new key by itself. Restore the key from your backup.
+> - **Key outside the repo.** Set `GARMIN_KEY`, for example `GARMIN_KEY=~/.config/garmin/developer_key.der ./build.sh export`. Then `git clean` cannot delete the key.
+> - **Brand-new app only.** `./build.sh newkey` makes a new key with mode 600. It never overwrites a key. A new key means a new store app.
+
+### Check a download
+
+Every [release](https://github.com/Belidor/gta6-countdown/releases) has `SHA256SUMS.txt`. Download it to the folder with your `.prg` files and run:
+
+```bash
+shasum -a 256 -c --ignore-missing SHA256SUMS.txt    # Linux: sha256sum -c --ignore-missing SHA256SUMS.txt
+```
 
 ### Release date
 

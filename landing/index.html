@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>GTA VI Countdown — on a Garmin watch</title>
 <meta name="description" content="Days, hours, minutes and seconds until GTA VI, on your Garmin watch. A watch face, a glance and a full-screen app. Free and open source.">
 <meta name="theme-color" content="#1E1027">
@@ -21,9 +23,7 @@
 <link rel="icon" href="img/icon.png">
 <link rel="preload" as="image" href="img/game/vice-sunset-phone.jpg" media="(max-width: 640px)" fetchpriority="high">
 <link rel="preload" as="image" href="img/game/vice-sunset-1920.jpg" imagesrcset="img/game/vice-sunset-960.jpg 960w, img/game/vice-sunset-1920.jpg 1920w" imagesizes="max(100vw, 1720px)" media="(min-width: 641px)" fetchpriority="high">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Roboto:wght@400&display=swap">
+<link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="install/install.css">
 <link rel="stylesheet" href="home.css">
@@ -279,10 +279,15 @@
 
 <section class="privacy" id="privacy">
     <div class="wrap">
-        <p class="eyebrow">Privacy policy · updated 7 November 2026</p>
+        <p class="eyebrow">Privacy policy · updated 8 November 2026</p>
         <h2>Privacy</h2>
-        <p>The watch face and the app ask for no permissions, make no network requests and collect no data. Everything happens on the watch. This website uses Google Analytics to count visits and downloads, but only if you allow it in the banner. You can change your choice with "Analytics settings" at the bottom of the page.</p>
-        <p>Contact: <a href="mailto:belidor@icloud.com">belidor@icloud.com</a> · <a href="https://github.com/Belidor/gta6-countdown/issues">GitHub issues</a></p>
+        <p><b>The watch apps collect nothing.</b> The watch face and the app ask for no permissions, make no network requests and collect no data. Everything happens on the watch.</p>
+        <p><b>Who runs this site.</b> Belidor, as a private, non-commercial fan project. Contact: <a href="mailto:belidor@icloud.com">belidor@icloud.com</a> · <a href="https://github.com/Belidor/gta6-countdown/issues">GitHub issues</a></p>
+        <p><b>Google Analytics, only with your consent.</b> If you click "Allow" in the banner, this site loads Google Analytics 4 to count visits, pages and downloads. Google then receives your IP address, browser and device data, and the pages you view. Ads features and Google signals are off. Legal basis: your consent (GDPR Art. 6(1)(a)). If you click "Decline" or do nothing, Google Analytics does not load.</p>
+        <p><b>Cookies and recipient.</b> Google Analytics sets the cookies <code>_ga</code> and <code>_ga_RV98YPRNH7</code> on gta6-garmin.belidor.cc for up to 13 months. The recipient is Google (Google Ireland Ltd. and Google LLC, USA). The transfer to the USA uses the EU-US Data Privacy Framework. Your banner choice stays in the local storage of your browser (<code>gta6-analytics</code>). This site sets no other cookies.</p>
+        <p><b>Withdraw at any time.</b> Click "Analytics settings" at the bottom of the page and choose "Decline". The site then stops Google Analytics and deletes its cookies. A withdrawal does not affect visits that were counted before it.</p>
+        <p><b>Hosting, fonts and downloads.</b> GitHub Pages (GitHub, Inc., USA) hosts this site. GitHub logs the IP addresses of visitors for security (legitimate interest, GDPR Art. 6(1)(f)). The fonts come from this site, not from Google. The <code>.prg</code> downloads come from GitHub Releases on github.com. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub privacy statement</a> and the <a href="https://policies.google.com/privacy">Google privacy policy</a>.</p>
+        <p><b>Your rights.</b> You can ask for access to your data, its correction, erasure or restriction, and a copy in a portable format, and you can object to its use. You can also complain to a data protection supervisory authority. Write to the contact address above.</p>
     </div>
 </section>
 

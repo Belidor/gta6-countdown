@@ -3,5 +3,13 @@ keys/
 *.der
 *.pem
 
-# Build output
+# Build output and release packages
 bin/
+*.iq
+*.prg
+
+# Local secrets
+.env
+
+# macOS
+.DS_Store
