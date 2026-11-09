@@ -157,7 +157,7 @@
     font-size: 13px;
     color: var(--ins-muted);
 }
-#install .ins-steps h3 { grid-column: 2; margin: 0 0 6px; font-size: 16px; font-weight: 700; }
+#install .ins-steps h4 { grid-column: 2; margin: 0 0 6px; font-size: 16px; font-weight: 700; }
 #install .ins-steps p { grid-column: 2; margin: 0 0 8px; font-size: 14px; overflow-wrap: anywhere; }
 #install .ins-steps p:last-child { margin-bottom: 0; }
 #install .ins-steps a { color: var(--ins-fg); }
@@ -188,6 +188,11 @@
     background: var(--ins-bg);
 }
 
+/* Store links come first; the USB install follows under its own heading */
+#install .ins-note-store { margin: 32px 0 64px; }
+#install .ins-alt { margin: 0 0 12px; font-size: 22px; line-height: 1.2; scroll-margin-top: 32px; }
+#install .ins-alt + .ins-lead { margin-top: 0; }
+
 [hidden] { display: none !important; }
 
 /* Phones */
@@ -198,7 +203,7 @@
     #install .ins-steps { box-shadow: 6px 6px 0 var(--ins-fg); }
     #install .ins-steps li { grid-template-columns: minmax(0, 1fr); padding: 18px 16px; }
     #install .ins-steps li::before { grid-row: auto; margin-bottom: 2px; }
-    #install .ins-steps h3,
+    #install .ins-steps h4,
     #install .ins-steps p { grid-column: 1; }
 }
 @media (max-width: 480px) {

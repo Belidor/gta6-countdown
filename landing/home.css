@@ -145,6 +145,7 @@
     color: #fff;
     text-decoration-thickness: 1px;
     text-underline-offset: 5px;
+    white-space: nowrap; /* the line breaks only between links, never inside one */
 }
 .cine-source a:hover { text-decoration-thickness: 2px; }
 .cine-source a:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
@@ -362,7 +363,7 @@
     .cine .stat b { font-size: 34px; }
 }
 
-/* Small phones (320-360px): keep "Connect IQ Store — soon" on one line */
+/* Small phones (320-360px): keep "Get the app + glance" on one line */
 @media (max-width: 360px) {
     .cine-btn { padding: 15px 18px; font-size: 16px; }
 }

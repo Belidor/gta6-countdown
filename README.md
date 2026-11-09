@@ -21,7 +21,7 @@
   &nbsp;·&nbsp;
   <a href="https://gta6-garmin.belidor.cc/#install"><b>Install</b></a>
   &nbsp;·&nbsp;
-  <b>Connect IQ Store:</b> coming soon
+  <b>Connect IQ Store:</b> <a href="https://apps.garmin.com/apps/e79c66ca-c48b-4cfc-af49-adbebb4d6765">watch face</a> · <a href="https://apps.garmin.com/apps/8770fc91-db38-408e-95f4-de4a30fe0c35">app + glance</a>
 </p>
 
 ## What it is
@@ -36,7 +36,12 @@
 
 ## Install
 
-**Easiest way:** open **[gta6-garmin.belidor.cc/#install](https://gta6-garmin.belidor.cc/#install)**, pick your watch and download the files. Then copy them to the watch over USB. It takes about two minutes.
+**Easiest way:** get it from the Connect IQ Store with the Connect IQ app on your phone. It is free, and store updates come to your watch by themselves.
+
+- **[Watch face](https://apps.garmin.com/apps/e79c66ca-c48b-4cfc-af49-adbebb4d6765)**
+- **[App + glance](https://apps.garmin.com/apps/8770fc91-db38-408e-95f4-de4a30fe0c35)**
+
+**Over USB:** open **[gta6-garmin.belidor.cc/#install](https://gta6-garmin.belidor.cc/#install)**, pick your watch and download the files. Then copy them to the watch over USB. It takes about two minutes.
 
 <p align="center">
   <a href="https://gta6-garmin.belidor.cc/#install">
@@ -44,7 +49,7 @@
   </a>
 </p>
 
-**Step by step:**
+**Step by step over USB:**
 
 1. **Download.** Pick your watch on the site. Download the watch face, the app, or both. They are `.prg` files.
 2. **Connect.** Plug the watch into your computer with the USB cable.
@@ -58,9 +63,9 @@
    - **App:** press **START** and pick **GTA VI Countdown**.
 
 > [!NOTE]
-> **Connect IQ Store: coming soon.** Garmin reviews every store app, and that takes a few days. When the store version is out, first delete the sideloaded `.prg` from `GARMIN/Apps`, then install from the store. This way you do not get two copies.
+> **Installed it over USB before?** First delete the old `.prg` file from `GARMIN/Apps`, then install from the Connect IQ Store. This way you do not get two copies. A copy from USB does not update by itself: if the release date changes, download the new file from the site.
 
-Prefer GitHub? The `.prg` files for every watch will also be on the [Releases](https://github.com/Belidor/gta6-countdown/releases) page.
+Prefer GitHub? The `.prg` files for every watch are also on the [Releases](https://github.com/Belidor/gta6-countdown/releases/tag/sideload-v1) page.
 
 ## Supported watches
 
@@ -251,7 +256,7 @@ No more than a regular digital watch face. It redraws once a minute and shows se
 At 00:00 on your watch clock, in your time zone, the countdown turns into **OUT NOW**. Then it counts the days since launch; day one is launch day. Store unlock times can differ by region.
 
 **What if the release date moves again?**<br>
-The date gets updated in a new version. The Connect IQ Store version (coming soon) will update by itself. For a sideloaded copy, download the new file from the site.
+The date gets updated in a new version. The Connect IQ Store version updates by itself. A copy from USB does not: download the new file from the site.
 
 **What about my privacy?**<br>
 The watch face and the app ask for no permissions, make no network requests and collect no data. The website counts visits with Google Analytics only if you allow it. Read the [privacy policy](https://gta6-garmin.belidor.cc/#privacy).
